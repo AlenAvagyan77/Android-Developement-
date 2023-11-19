@@ -11,12 +11,19 @@ public class LoginPage {
         String usernameForCheck = sc.nextLine();
         System.out.println("Enter your password");
         String passForCheck = sc.nextLine();
-        if (passForCheck.equals(pass) && usernameForCheck.equals(username)) {
-            System.out.println("You are logged in successfully");
-            chatBot.firstQuestion("Alen").secondQuestion().thirdQuestion().fourthQuestion().fifthQuestion();
+        if (isCorrectName(usernameForCheck)) {
+            if (passForCheck.equals(pass) && usernameForCheck.equals(username)) {
+                System.out.println("You are logged in successfully");
+                chatBot.firstQuestion("Alen").secondQuestion().thirdQuestion().fourthQuestion().fifthQuestion();
+            }
         }else {
-            System.out.println("Wrong email or password");
+                System.out.println("Wrong email or password");
+            }
         }
+
+
+    private boolean isCorrectName(String n){
+        return n.matches("[A-Z][a-z]+");
 
     }
 

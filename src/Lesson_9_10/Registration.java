@@ -8,9 +8,11 @@ public class Registration {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your Name");
         String username = sc.nextLine();
-        if (username.length() < 6) {
-            System.out.println("The name should contain 6 character");
-            registration();
+        if (isCorrectName(username)) {
+            if (username.length() < 6) {
+                System.out.println("The name should contain 6 character");
+                registration();
+            }
         }
         System.out.println("Enter your Password");
         String pass = sc.nextLine();
@@ -19,6 +21,11 @@ public class Registration {
             registration();
         }
         homePage.welcome(username, pass);
+
+    }
+
+    private boolean isCorrectName(String n){
+        return n.matches("[A-Z][a-z]+");
 
     }
 
